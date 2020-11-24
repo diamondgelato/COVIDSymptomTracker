@@ -60,6 +60,7 @@ import java.awt.event.*;
     {  
       
         new First();  
+        System.out.println("Hello");
     }  
     
             
