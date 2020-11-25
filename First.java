@@ -14,14 +14,15 @@ import java.awt.event.*;
     JButton b1, b2;  
     
     First(){
-        getContentPane().setBackground(Color.ORANGE);
+        getContentPane().setBackground(Color.CYAN);
         setVisible(true);  
         setSize(300, 300);  
         setLayout(null);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         setTitle("COVID Symptoms Tracker");  
-        l1 = new JLabel("COVID Symptoms Tracker");
-        l1.setForeground(Color.blue);  
+        l1 = new JLabel("  COVID Symptoms Tracker");
+        
+        l1.setForeground(Color.RED);  
         l1.setFont(new Font("Serif", Font.BOLD, 15)); 
         b1 = new JButton("Patient");  
         b2 = new JButton("Doctor");  
