@@ -1,4 +1,4 @@
-package ia;
+// package ia;
 import javax.swing.*;  
 import java.awt.*; 
 import java.awt.event.*;
@@ -39,8 +39,8 @@ public class DoctorMenu extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
             if (e.getSource() == b1) {
-                Prescription s1= new Prescription();
-                  s1.setVisible(true);
+                // Prescription s1= new Prescription();
+                //   s1.setVisible(true);
                   dispose();
              }
              
