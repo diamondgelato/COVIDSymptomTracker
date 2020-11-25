@@ -13,12 +13,13 @@ import java.util.HashMap;
  * 
  * table schema: 
  * CREATE TABLE PATIENTDATA( 
- * ID INTEGER PRIMARY KEY AUTOINCREMENT,
- * NAME STRING, 
- * USERNAME STRING, 
- * PASSWORD STRING, 
- * AGE INT, 
- * PHONE STRING);
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  NAME STRING, 
+  USERNAME STRING, 
+  PASSWORD STRING, 
+  AGE INT, 
+  PHONE STRING,
+  GENDER  STRING);
  */
 
 public class TestConnection {
@@ -37,7 +38,7 @@ public class TestConnection {
         return con;
     }
 
-    public static void registrationDBConnect(String fname, String uname, String pword, int age, String phone, String gender) throws SQLException, ClassNotFoundException{        
+    public static void addPatientData (String fname, String uname, String pword, int age, String phone, String gender) throws SQLException, ClassNotFoundException{        
         Connection con = TestConnection.getDBConnection();
 
         // Initialise new statement
@@ -125,12 +126,11 @@ public class TestConnection {
 
     public static void main(String[] args) {
         // try {
-            // TestConnection.registrationDBConnect("Jake", "jakeyboi", "password", 19, "9025547184", "M");
-            // TestConnection.getAllData();
-            // TestConnection.getPatientData(2);
+        //     // TestConnection.getAllData();
+        //     // TestConnection.addPatientData ("Mugdha", "Mugs1809", "Mugs1809", 19, "9082105969", "F");
 
-            Patient p1 = new Patient(3);
-            p1.printData();
+        //     // Patient p1 = new Patient(1);
+        //     // p1.printData();
         // } 
         // catch (ClassNotFoundException e) {
         //     // TODO Auto-generated catch block
