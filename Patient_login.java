@@ -105,6 +105,10 @@ public class Patient_login extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e)
 
     {
+        if(e.getSource()==b1)
+        {
+
+        }
 
         showData();
          new Registration().setVisible(true);
@@ -121,43 +125,45 @@ public class Patient_login extends JFrame implements ActionListener
     {
 
 
-        String str1 = tf1.getText();
+        String str1 = tf1.getText(); //Username
 
         char[] p = p1.getPassword();
 
-        String str2 = new String(p);
+        String str2 = new String(p); //Password
+        
 
-        try
+        // try
 
-        {
+        // {
 
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+        //     Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@mcndesktop07:1521:xe", "sandeep", "welcome");
+        //     Connection con = DriverManager.getConnection("jdbc:oracle:thin:@mcndesktop07:1521:xe", "sandeep", "welcome");
 
-            PreparedStatement ps = con.prepareStatement("select name from reg where email=? and pass=?");
+        //     PreparedStatement ps = con.prepareStatement("select name from reg where email=? and pass=?");
 
-            ps.setString(1, str1);
+        //     ps.setString(1, str1);
 
-            ps.setString(2, str2);
+        //     ps.setString(2, str2);
 
-            ResultSet rs = ps.executeQuery();
+        //     ResultSet rs = ps.executeQuery();
 
-            if (rs.next())
+            // if (rs.next())
 
-            {
-                new Symptom().setVisible(true);
-                dispose();
+            // {
+            //     new Symptom().setVisible(true);
+            //     dispose();
 
  
 
-            } else
+            // } 
+            else
 
             {
 
                 JOptionPane.showMessageDialog(null,
 
-                   "Incorrect email-Id or password..Try Again with correct detail");
+                   "Incorrect email-Id or password...Try Again with correct detail");
 
             }
 
@@ -174,3 +180,5 @@ public class Patient_login extends JFrame implements ActionListener
     }
 
 }
+
+

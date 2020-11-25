@@ -1,21 +1,23 @@
-
 package ia;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-
-
-import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.*; 
-import java.sql.*;  
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
  public class Symptom extends JFrame implements ActionListener  {
      JLabel l1;
      JButton b1;
      JCheckBox c1,c2,c3,c4,c5,c6,c7;
+     boolean b[]=new boolean[7];
      
      Symptom(){
-          getContentPane().setBackground(Color.ORANGE);
+          getContentPane().setBackground(Color.CYAN);
          setTitle("Symptoms");
 
         setVisible(true);
@@ -24,11 +26,11 @@ import java.sql.*;
 
         setLayout(null);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         l1 = new JLabel("Symptoms");
 
-        l1.setForeground(Color.blue);
+        l1.setForeground(Color.RED);
 
         l1.setFont(new Font("Serif", Font.BOLD, 20));
         
@@ -41,7 +43,7 @@ import java.sql.*;
         c7= new JCheckBox("Chest Pain");
         b1 = new JButton("Submit");  
         
-        l1.setBounds(100, 30, 400, 30);  
+        l1.setBounds(150, 30, 400, 30);  
         c1.setBounds(80, 70, 200, 30);  
         c2.setBounds(80, 110, 200, 30);  
         c3.setBounds(80, 150, 200, 30);  
@@ -60,18 +62,45 @@ import java.sql.*;
         add(c6);
         add(c7);
         add(b1);
-          
-     
      }    
      
      public void actionPerformed(ActionEvent e){
           try
-
         {
-            //Code for Data connectivity
+            if(c1.isSelected())
+                b[0]=true;
 
-       
+            if(c2.isSelected())
+                b[1]=true;
+
+            if(c3.isSelected())
+                b[2]=true;
+            
+
+            if(c4.isSelected())
+                b[3]=true;
+            
+
+            if(c5.isSelected())
+                b[4]=true;
+            
+
+            if(c6.isSelected())
+                b[5]=true;
+            
+
+            if(c7.isSelected())
+                b[6]=true;
+            
+
+                // for(int i=0;i<7;i++)
+                //      System.out.println(b[i]);
+            
         }
+
+
+        // DBConnection.addPatientSymptom(b);
+
         catch (Exception ex)
 
         {
@@ -90,4 +119,6 @@ import java.sql.*;
 
    }
 
+
  }
+ //Have to send the Date as well

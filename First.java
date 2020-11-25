@@ -18,7 +18,7 @@ import java.awt.event.*;
         setVisible(true);  
         setSize(300, 300);  
         setLayout(null);  
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
         setTitle("COVID Symptoms Tracker");  
         l1 = new JLabel("  COVID Symptoms Tracker");
         
