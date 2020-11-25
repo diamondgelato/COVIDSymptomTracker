@@ -99,7 +99,7 @@ import javax.swing.WindowConstants;
         }
 
 
-        // DBConnection.addPatientSymptom(b);
+        DBConnection.addPatientSymptom(b);
 
         catch (Exception ex)
 

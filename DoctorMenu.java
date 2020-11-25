@@ -21,7 +21,7 @@ public class DoctorMenu extends JFrame implements ActionListener
         l1.setForeground(Color.RED);  
         l1.setFont(new Font("Courier New", Font.BOLD, 15)); 
         b1 = new JButton("New Prescription");  
-        b2 = new JButton("Previous Prescription");  
+        b2 = new JButton("Display Previous Prescription");  
         b1.addActionListener(this);  
         b2.addActionListener(this); 
         l1.setBounds(50, 30, 400, 30); 

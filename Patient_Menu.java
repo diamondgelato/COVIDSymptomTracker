@@ -56,8 +56,8 @@ public class Patient_Menu extends JFrame implements ActionListener
                  
              }
              else {
-                Report s2= new Report();
-                s2.setVisible(true);
+                Report s3= new Report();
+                s3.setVisible(true);
                 dispose();
 
              }

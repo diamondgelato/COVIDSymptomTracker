@@ -44,11 +44,15 @@ import java.awt.event.*;
                  dispose();
             }
             
-            else{
+            else if(e.getSource()==b2){
                 Doctor_login s2= new Doctor_login();
                  s2.setVisible(true);
                  dispose();
            
+                
+            }
+            else
+            {
                 
             }
            
