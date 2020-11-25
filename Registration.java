@@ -1,4 +1,3 @@
-
 package ia;
 import javax.swing.*;  
 import java.awt.*;  
@@ -12,18 +11,18 @@ public class Registration extends JFrame implements ActionListener
     JPasswordField p1, p2;  
     Registration()  
     {  
-        getContentPane().setBackground(Color.ORANGE);
+        getContentPane().setBackground(Color.CYAN);
         setVisible(true);  
         setSize(700, 700);  
         setLayout(null);  
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
         setTitle("Registration Form in Java");  
         l1 = new JLabel("Registration Form in Windows Form:");  
-        l1.setForeground(Color.blue);  
-        l1.setFont(new Font("Serif", Font.BOLD, 20));  
+        l1.setForeground(Color.RED);  
+        l1.setFont(new Font("Courier New", Font.BOLD, 20));  
         l2 = new JLabel("Name:");  
         l3 = new JLabel("Username:");  
-        l4 = new JLabel("Create Passowrd:");  
+        l4 = new JLabel("Create Password:");  
         l5 = new JLabel("Confirm Password:");  
         l6 = new JLabel("Gender:");  
         l7 = new JLabel("Age:");  
@@ -39,7 +38,7 @@ public class Registration extends JFrame implements ActionListener
         btn2 = new JButton("Clear");  
         btn1.addActionListener(this);  
         btn2.addActionListener(this);  
-        l1.setBounds(100, 30, 400, 30);  
+        l1.setBounds(100, 30, 700, 30);  
         l2.setBounds(80, 70, 200, 30);  
         l3.setBounds(80, 110, 200, 30);  
         l4.setBounds(80, 150, 200, 30);  
@@ -79,48 +78,65 @@ public class Registration extends JFrame implements ActionListener
         if (e.getSource() == btn1)  
          {  
             int x = 0;  
-            String s1 = tf1.getText();  
-            String s2 = tf2.getText();  
-            char[] s3 = p1.getPassword();  
-            char[] s4 = p2.getPassword();   
+            String s1 = tf1.getText();  //Name
+            String s2 = tf2.getText();  //Username
+            char[] s3 = p1.getPassword();  //Password
+            char[] s4 = p2.getPassword();   //Confirm Password
             String s8 = new String(s3);  
             String s9 = new String(s4);  
-            String s5 = tf5.getText();  
-            String s6 = tf6.getText();  
-            String s7 = tf7.getText();  
+            String s5 = tf5.getText();  //Gender
+            String s6 = tf6.getText();  //Age
+            String s7 = tf7.getText();  //Phone Number
+            try{
             if (s8.equals(s9))  
             {  
-                try  
-                {  
-                    Class.forName("oracle.jdbc.driver.OracleDriver");  
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@mcndesktop07:1521:xe", "sandeep", "welcome");  
-                    PreparedStatement ps = con.prepareStatement("insert into reg values(?,?,?,?,?,?)");  
-                    ps.setString(1, s1);  
-                    ps.setString(2, s2);  
-                    ps.setString(3, s8);  
-                    ps.setString(4, s5);  
-                    ps.setString(5, s6);  
-                    ps.setString(6, s7);
-                    ResultSet rs = ps.executeQuery();  
-                    x++;  
-                    if (x > 0)   
-                    {  
-                        JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");  
-                    }  
-                }  
-                catch (Exception ex)   
-                {  
-                    System.out.println(ex);  
-                } 
+                // try  
+                // {  
+                //     Class.forName("oracle.jdbc.driver.OracleDriver");  
+                //     Connection con = DriverManager.getConnection("jdbc:oracle:thin:@mcndesktop07:1521:xe", "sandeep", "welcome");  
+                //     PreparedStatement ps = con.prepareStatement("insert into reg values(?,?,?,?,?,?)");  
+                //     ps.setString(1, s1);  
+                //     ps.setString(2, s2);  
+                //     ps.setString(3, s8);  
+                //     ps.setString(4, s5);  
+                //     ps.setString(5, s6);  
+                //     ps.setString(6, s7);
+                //     ResultSet rs = ps.executeQuery();  
+                //     x++;  
+                //     if (x > 0)   
+                //     {  
+                //         JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");  
+                //     }  
+                // }  
+                // catch (Exception ex)   
+                // {  
+                //     System.out.println(ex);  
+                // } 
                 
                 new Symptom().setVisible(true);
                 dispose();
+                int a=Integer.parseInt(s6);
+                char c=s5.toUpperCase().charAt(0);
+                String g=String.valueOf(c);
+
+                DBConnection.addPatientData(s1, s2, s9, a, s7, g);
             }  
             else  
             {  
                 JOptionPane.showMessageDialog(btn1, "Password Does Not Match");  
             }   
           }   
+        
+        catch(ClassNotFoundException c)
+        {
+            System.out.println("Class NOT Found");
+        }
+        catch(SQLException sq)
+        {
+            System.out.println("DATABASE Error");
+        }
+    }
+
           else  
           {  
             tf1.setText("");  
@@ -131,6 +147,18 @@ public class Registration extends JFrame implements ActionListener
             tf6.setText("");  
             tf7.setText("");  
           }  
-    }   
+    } 
+    public static void main(String arr[])
 
-}  
+   {
+
+       new Registration();
+
+   }
+
+
+ }
+
+
+
+
