@@ -2,7 +2,7 @@ import java.sql.*;
 import java.util.HashMap;
 
 /**
- * TestConnection
+ * DBConnection
  * 
  * Table: PATIENTDATA 
  * - ID: int (primary key) 
@@ -22,7 +22,7 @@ import java.util.HashMap;
   GENDER  STRING);
  */
 
-public class TestConnection {
+public class DBConnection {
     public static Connection getDBConnection () throws SQLException, ClassNotFoundException {
         String driverClassName = "org.sqlite.JDBC"; // driver name, find it
         String url = "jdbc:sqlite:COVIDPatients.db"; // db name, make it
@@ -39,7 +39,7 @@ public class TestConnection {
     }
 
     public static void addPatientData (String fname, String uname, String pword, int age, String phone, String gender) throws SQLException, ClassNotFoundException{        
-        Connection con = TestConnection.getDBConnection();
+        Connection con = DBConnection.getDBConnection();
 
         // Initialise new statement
         // Input parameters
@@ -61,7 +61,7 @@ public class TestConnection {
     public static HashMap<String, String> getPatientData (int id) throws SQLException, ClassNotFoundException {
         // get data of a specific patient/row
 
-        Connection con = TestConnection.getDBConnection();
+        Connection con = DBConnection.getDBConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;
         HashMap<String, String> result = new HashMap<> ();
@@ -99,7 +99,7 @@ public class TestConnection {
     public static void getAllData () throws SQLException, ClassNotFoundException {
         // get all data in the particular table
 
-        Connection con = TestConnection.getDBConnection();
+        Connection con = DBConnection.getDBConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;
 
@@ -126,8 +126,8 @@ public class TestConnection {
 
     public static void main(String[] args) {
         // try {
-        //     // TestConnection.getAllData();
-        //     // TestConnection.addPatientData ("Mugdha", "Mugs1809", "Mugs1809", 19, "9082105969", "F");
+        //     // DBConnection.getAllData();
+        //     // DBConnection.addPatientData ("Mugdha", "Mugs1809", "Mugs1809", 19, "9082105969", "F");
 
         //     // Patient p1 = new Patient(1);
         //     // p1.printData();

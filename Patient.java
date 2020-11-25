@@ -26,7 +26,7 @@ public class Patient {
     public Patient (int id) {
         // get patient from DB and populate variables;
         try {
-            HashMap<String, String> patient = TestConnection.getPatientData(id);
+            HashMap<String, String> patient = DBConnection.getPatientData(id);
 
             this.id = id;
             this.name = patient.get("name");
