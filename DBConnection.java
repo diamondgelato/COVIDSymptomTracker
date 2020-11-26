@@ -205,7 +205,7 @@ public class DBConnection {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Vector<HashMap<String, Integer>> result = new Vector<> ();
-        HashMap<String, Integer> temp = new HashMap<> ();
+        
 
         String sql = "SELECT * FROM SYMPTOMS WHERE PATIENTID = ?";
         ps = con.prepareStatement(sql);
@@ -215,6 +215,7 @@ public class DBConnection {
 
         while (rs.next()) {
             // int id = rs.getInt("ID");
+            HashMap<String, Integer> temp = new HashMap<> ();
             temp.put("fever", rs.getInt("FEVER"));
             temp.put("musclepain", rs.getInt("MUSCLEPAIN"));
             temp.put("dizzy", rs.getInt("DIZZY"));

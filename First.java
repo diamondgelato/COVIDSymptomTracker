@@ -14,7 +14,7 @@ public class First extends JFrame implements ActionListener {
     JButton b1, b2, b3;
 
     First() {
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.DARK_GRAY);
         setVisible(true);
         setSize(300, 300);
         setLayout(null);
@@ -22,18 +22,18 @@ public class First extends JFrame implements ActionListener {
         setTitle("COVID Symptoms Tracker");
         l1 = new JLabel("  COVID Symptoms Tracker");
 
-        l1.setForeground(Color.RED);
-        l1.setFont(new Font("Serif", Font.BOLD, 15));
+        l1.setForeground(Color.WHITE);
+        l1.setFont(new Font("Algerian", Font.BOLD, 20));
         b1 = new JButton("Patient");
         b2 = new JButton("Doctor");
         b3= new JButton("Precautions");
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
-        l1.setBounds(50, 30, 400, 30);
+        l1.setBounds(40, 30, 400, 30);
         b1.setBounds(50, 100, 100, 30);
         b2.setBounds(170, 100, 100, 30);
-        b3.setBounds(170, 150, 120,30);
+        b3.setBounds(110, 150, 120,30);
         add(l1);
         add(b1);
         add(b2);

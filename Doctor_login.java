@@ -27,7 +27,7 @@ public class Doctor_login extends JFrame implements ActionListener
     Doctor_login()
 
     {
-         getContentPane().setBackground(Color.ORANGE);
+         getContentPane().setBackground(Color.DARK_GRAY);
 
         setTitle("Login Form");
 
@@ -43,16 +43,19 @@ public class Doctor_login extends JFrame implements ActionListener
 
         l1 = new JLabel("Login Form");
 
-        l1.setForeground(Color.blue);
+        l1.setForeground(Color.WHITE);
 
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
+        l1.setFont(new Font("Algerian", Font.BOLD, 20));
 
  
 
         l2 = new JLabel("Enter Email:");
 
         l3 = new JLabel("Enter Password:");
-
+        l2.setForeground(Color.WHITE);
+        l3.setForeground(Color.WHITE);
+        l2.setFont(new Font("Courier New", Font.BOLD, 15));
+        l3.setFont(new Font("Courier New", Font.BOLD, 15));
         tf1 = new JTextField();
 
         p1 = new JPasswordField();
@@ -61,15 +64,15 @@ public class Doctor_login extends JFrame implements ActionListener
 
  
 
-        l1.setBounds(100, 30, 400, 30);
+        l1.setBounds(80, 30, 400, 30);
 
         l2.setBounds(80, 70, 200, 30);
 
         l3.setBounds(80, 110, 200, 30);
 
-        tf1.setBounds(300, 70, 200, 30);
+        tf1.setBounds(270, 70, 200, 30);
 
-        p1.setBounds(300, 110, 200, 30);
+        p1.setBounds(270, 110, 200, 30);
 
         btn1.setBounds(150, 160, 100, 30);
 

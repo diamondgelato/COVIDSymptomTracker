@@ -39,13 +39,13 @@ public class Patient_Prescrip extends JFrame implements ActionListener {
             }
              
 
-             getContentPane().setBackground(Color.CYAN);
+             getContentPane().setBackground(Color.DARK_GRAY);
              setVisible(true);  
              setSize(900, 600);  
              setLayout(null);  
              setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
              setTitle("Create Prescription");  
-             
+                l1= new JLabel("Prescription:");
                 l2= new JLabel ("Patient Name: "+p1.get("name")); //Patient Name needs to be printed against it
                 l3= new JLabel("Age: "+p1.get("age")); //Age of the Patient needs to be printed against it
                 l4= new JLabel("Gender: "+p1.get("gender")); //Gender needs to be printed against it
@@ -57,11 +57,13 @@ public class Patient_Prescrip extends JFrame implements ActionListener {
                 b2= new JButton("Submit");
                 b3= new JButton("Clear");
 
-                l2.setForeground(Color.RED);
-                l3.setForeground(Color.RED);
-                l4.setForeground(Color.RED);
-                l5.setForeground(Color.RED);
-                l6.setForeground(Color.RED);
+                l1.setForeground(Color.white);
+                l2.setForeground(Color.white);
+                l3.setForeground(Color.white);
+                l4.setForeground(Color.white);
+                l5.setForeground(Color.white);
+                l6.setForeground(Color.white);
+                l1.setFont(new Font("Algerian", Font.BOLD, 20));
                 l2.setFont(new Font("Courier New", Font.BOLD, 15)); 
                 l3.setFont(new Font("Courier New", Font.BOLD, 15)); 
                 l4.setFont(new Font("Courier New", Font.BOLD, 15)); 
@@ -81,16 +83,18 @@ public class Patient_Prescrip extends JFrame implements ActionListener {
                 // tf2.setBounds(45, 250, 300, 30);
                 // b3.setBounds(50, 900, 100, 30);
                 // b2.setBounds(210, 900, 100, 30);
+                l1.setBounds(50, 20, 300, 30);
                 l2.setBounds(50, 50, 300, 30);
                 l3.setBounds(50, 100, 300, 30);
                 l5.setBounds(50, 200, 300, 30);
                 l4.setBounds(50, 150, 300, 30);
                 l6.setBounds(50, 250, 300, 30);
-                tf1.setBounds(400, 200, 300, 30);
-                tf2.setBounds(400, 250, 300, 30);
+                tf1.setBounds(320, 200, 300, 30);
+                tf2.setBounds(320, 250, 300, 30);
                 b3.setBounds(50, 300, 100, 30);
                 b2.setBounds(200, 300, 100, 30);
-
+ 
+                add(l1);
                 add(l2);
                 add(l3);
                 add(l4);

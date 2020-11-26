@@ -13,7 +13,7 @@ public class Report extends JFrame {
     // Label l[][];
 
     Report(int patientID) {
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.LIGHT_GRAY);
         setVisible(true);
         setSize(1000, 1000);
         setLayout(null);
@@ -34,10 +34,13 @@ public class Report extends JFrame {
         String[] headers = { "fever", "musclepain", "dizzy", "sorethroat", "cough", "breathingprob", "chestpain" };
 
         Label l [][] = new Label[data.size()+1][7];
+        
+        String[] cols={"Fever", "Muscle Pain", "Dizzy", "Sore Throat", "Cough", "Breathing problem ", "Chest Pain"};
 
         for (int j = 0; j < 7; j++) {
-            l[0][j]= new Label (headers[j]);
+            l[0][j]= new Label (cols[j]);
             l[0][j].setBounds(100, 100+(50*j), 100, 30);
+            
             add(l[0][j]);
             // System.out.print(data.elementAt(i).get(headers[j]));
         // row.add( data.elementAt(i).get(headers.elementAt(j)) );
@@ -50,7 +53,7 @@ public class Report extends JFrame {
         {
             for (int j = 0; j < 7; j++) {
                 l[i+1][j ]= new Label (Integer.toString(data.elementAt(i).get(headers[j])));
-                l[i+1][j].setBounds(100+((i+1)*100), 100+(50*j), 100, 30);
+                l[i+1][j].setBounds(110+((i+1)*100), 100+(50*j), 100, 30);
                 add(l[i+1][j]);
                 System.out.print(data.elementAt(i).get(headers[j]));
             // row.add( data.elementAt(i).get(headers.elementAt(j)) );

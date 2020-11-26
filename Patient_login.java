@@ -15,7 +15,7 @@ public class Patient_login extends JFrame implements ActionListener
     
     Patient_login()
     {
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.DARK_GRAY);
         setTitle("Login Form for Patient");
         setVisible(true);
         setSize(700, 700);
@@ -23,17 +23,21 @@ public class Patient_login extends JFrame implements ActionListener
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         l1 = new JLabel("Patient Login Form :");
-        l1.setForeground(Color.RED);
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
+        l1.setForeground(Color.white);
+        l1.setFont(new Font("Algerian", Font.BOLD, 20));
         
         l2 = new JLabel("Enter Username:");
         l3 = new JLabel("Enter Password:");
+        l2.setForeground(Color.white);
+        l3.setForeground(Color.white);
+        l2.setFont(new Font("Courier New", Font.BOLD, 15));
+        l3.setFont(new Font("Courier New", Font.BOLD, 15));
         tf1 = new JTextField();
         p1 = new JPasswordField();
         b1 = new JButton("Login");
         b2 = new JButton("Register");
 
-        l1.setBounds(100, 30, 400, 30);
+        l1.setBounds(80, 30, 400, 30);
         l2.setBounds(80, 70, 200, 30);
         l3.setBounds(80, 110, 200, 30);
         tf1.setBounds(300, 70, 200, 30);
