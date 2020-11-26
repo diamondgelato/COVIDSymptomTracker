@@ -1,5 +1,4 @@
-
-// package ia;
+package ia;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +11,7 @@ public class Registration extends JFrame implements ActionListener {
     JPasswordField p1, p2;
 
     Registration() {
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.DARK_GRAY);
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
@@ -20,7 +19,7 @@ public class Registration extends JFrame implements ActionListener {
         setTitle("Registration Form in Java");
 
         l1 = new JLabel("Registration Form in Windows Form:");
-        l1.setForeground(Color.RED);
+        l1.setForeground(Color.white);
         l1.setFont(new Font("Courier New", Font.BOLD, 20));
 
         l2 = new JLabel("Name:");

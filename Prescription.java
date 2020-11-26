@@ -28,7 +28,7 @@ public class Prescription extends JFrame implements ActionListener{
 
     Prescription()
     {
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.DARK_GRAY);
         setVisible(true);  
         setSize(1000, 1000);  
         setLayout(null);  
@@ -37,24 +37,31 @@ public class Prescription extends JFrame implements ActionListener{
         
         try{
         int i=0;
-        l1= new JLabel("Hello Doc!");
-        Vector <Vector> Data = new Vector<Vector>();
+        //l1= new JLabel("Hello Doc!");
+        Vector <String[]> Data = new Vector<String[]>(); //New vector
         
-        Vector <Vector<String>> p;
-        p=DBConnection.getAllPatientName();
-        System.out.println(p.get(3).elementAt(1));
-        System.out.println(p.get(3).size());
-        Vector <String> cols=new Vector<String>(Arrays.asList("Patient Name","Patient ID"));
+        Vector <String[]> p;
+        p=DBConnection.getAllPatientName(); //getting from database.
+
+        // System.out.println();
+        // System.out.println(p.get(3).size());
+        String s2[]={"Patient Name", "Patient ID"};
+        Vector <String[]> cols=new Vector<String[]>();
+        cols.add(s2);
 
              
            while(i<p.size())
             {   
                Data.addElement(p.elementAt(i));
                i++;
-            }
 
-            table= new JTable(Data, cols);
+
+            }
+            System.out.println(Data);
+
+           //table= new JTable(Data, cols);
         }
+
         catch(SQLException sq)
         {
             System.out.println("DATABASE Error");
@@ -66,31 +73,46 @@ public class Prescription extends JFrame implements ActionListener{
         }  
 
         l2= new JLabel("Enter the Patient ID:");
-        l1.setForeground(Color.RED);  
-        l1.setFont(new Font("Courier New", Font.BOLD, 20));  
-        l2.setForeground(Color.RED);  
+        // l1.setForeground(Color.white);  
+        //l1.setFont(new Font("Courier New", Font.BOLD, 20));  
+        l2.setForeground(Color.white);  
         l2.setFont(new Font("Courier New", Font.BOLD, 15));  
         tf1= new JTextField();
-        b1=new JButton("Proceed");
+        b1=new JButton("Create Prescriptions");
+        //b2=new JButton("view Prescriptions");
         b1.addActionListener(this);
-        b1.setBounds(200, 600, 100, 30);
-        l1.setBounds(100, 450, 200, 30);
-        tf1.setBounds(200,500, 300, 30 ); //TextField to take the id of the patient
-        l2.setBounds(50, 500, 100, 30);
-        add(new JScrollPane(table));
-        add(l1);
+        //b2.addActionListener(this);
+        
+        //b2.setBounds(700, 600, 500,30);
+        b1.setBounds(150, 300 , 500, 30);
+        //l1.setBounds(100, 100, 200, 30);
+        tf1.setBounds(300,200, 300, 30 ); //TextField to take the id of the patient
+        l2.setBounds(50, 200, 500, 30);
+        // add(new JScrollPane(table));
+        // add(l1);
         add(b1);
+        //add(b2);
         add(l2);
         add(tf1);
         }
 
 
     public void actionPerformed(ActionEvent e) {
+        String s=tf1.getText();
         // TODO Auto-generated method stub
+            
+             if(e.getSource()==b1)
+             {
+                
+                new Patient_Prescrip(s).setVisible(true);
+                dispose();
+             }
+            //  else
+            //  {
+            //     new DisplayPresp(s).setVisible(true);
+            //     dispose();
+            //  }
              
-             String s=tf1.getText();
-             new Patient_Prescrip(s).setVisible(true);
-             dispose();
 
     
 }

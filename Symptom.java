@@ -1,5 +1,5 @@
+package ia;
 
-// package ia;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 public class Symptom extends JFrame implements ActionListener {
@@ -22,7 +23,7 @@ public class Symptom extends JFrame implements ActionListener {
     Symptom(int patientID) {
         this.patientID = patientID;
 
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(Color.DARK_GRAY);
         setTitle("Symptoms");
         setVisible(true);
         setSize(500, 500);
@@ -31,8 +32,8 @@ public class Symptom extends JFrame implements ActionListener {
         // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Symptoms");
-        l1.setForeground(Color.RED);
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
+        l1.setForeground(Color.white);
+        l1.setFont(new Font("Algerian", Font.BOLD, 20));
 
         c1 = new JCheckBox("Fever");
         c2 = new JCheckBox("Aches and Pains");
@@ -43,15 +44,15 @@ public class Symptom extends JFrame implements ActionListener {
         c7 = new JCheckBox("Chest Pain");
         b1 = new JButton("Submit");
 
-        l1.setBounds(150, 30, 400, 30);
-        c1.setBounds(80, 70, 200, 30);
-        c2.setBounds(80, 110, 200, 30);
-        c3.setBounds(80, 150, 200, 30);
-        c4.setBounds(80, 190, 200, 30);
-        c5.setBounds(80, 230, 200, 30);
-        c6.setBounds(80, 270, 200, 30);
-        c7.setBounds(80, 310, 200, 30);
-        b1.setBounds(50, 350, 100, 30);
+        l1.setBounds(200, 30, 400, 30);
+        c1.setBounds(150, 70, 200, 30);
+        c2.setBounds(150, 110, 200, 30);
+        c3.setBounds(150, 150, 200, 30);
+        c4.setBounds(150, 190, 200, 30);
+        c5.setBounds(150, 230, 200, 30);
+        c6.setBounds(150, 270, 200, 30);
+        c7.setBounds(150, 310, 200, 30);
+        b1.setBounds(200, 350, 100, 30);
 
         b1.addActionListener(this);
 
@@ -87,7 +88,8 @@ public class Symptom extends JFrame implements ActionListener {
 
             if (c7.isSelected())
                 b[6] = true;
-        
+                //JOptionPane.showMessageDialog(null, "Symptoms have been successfully submitted.");
+
 
         try {
             DBConnection.addPatientSymptom(patientID, new Date(), b);
