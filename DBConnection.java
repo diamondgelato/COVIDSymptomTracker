@@ -44,6 +44,10 @@ CREATE TABLE MEDICINEDATA(
     DATE  TEXT,
     MEDNAME  TEXT,
     DOSAGE  TEXT);
+
+CREATE TABLE DOCTOR(
+    USERNAME  TEXT,
+    PASSWORD  TEXT);
  */
 
 public class DBConnection {
@@ -226,7 +230,7 @@ public class DBConnection {
         return result;
     }
 
-    public static void addPatientData (String fname, String uname, String pword, int age, String phone, String gender) throws SQLException, ClassNotFoundException{        
+    public static int addPatientData (String fname, String uname, String pword, int age, String phone, String gender) throws SQLException, ClassNotFoundException{        
         Connection con = DBConnection.getDBConnection();
 
         // Initialise new statement
@@ -240,10 +244,19 @@ public class DBConnection {
         st.setString(5, phone);
         st.setString(6, gender);
         st.execute();
+
+        String query2 = "SELECT ID FROM PATIENTDATA WHERE NAME = ?";
+        PreparedStatement st2 = con.prepareStatement(query2);
+        st2.setString(1, fname);
+
+        ResultSet rs = st2.executeQuery();
+        int id = rs.getInt("ID");
         System.out.println("Data added to DB");
 
         // Closing data base connection
         con.close();
+
+        return id;
     }
 
     public static HashMap<String, String> getPatientData (int id) throws SQLException, ClassNotFoundException {
@@ -312,20 +325,20 @@ public class DBConnection {
         con.close();
     }
 
-    public static Vector<Vector<String>> getAllPatientName () throws SQLException, ClassNotFoundException {
+    public static Vector<String []> getAllPatientName () throws SQLException, ClassNotFoundException {
         Connection con = DBConnection.getDBConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;
-        Vector <Vector <String>> result = new Vector<> ();
-        Vector <String> temp = new Vector<> ();
+        Vector <String []> result = new Vector<> ();
+        String temp [] = new String [2];
 
         String sql = "SELECT ID, NAME FROM PATIENTDATA";
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
 
         while (rs.next()) {
-            temp.add(Integer.toString(rs.getInt("ID")));
-            temp.add(rs.getString("NAME"));
+            temp[0] = Integer.toString(rs.getInt("ID"));
+            temp[1] = rs.getString("NAME");
             result.add(temp);
 
             // System.out.println(id + " " + name +" " +  username + " " + password + " " + age + " " + phone + " " + gender);
@@ -341,33 +354,59 @@ public class DBConnection {
     /**
      * call this for checking patient password during login
      */
-    public static String getPatientPassword (String username) throws SQLException, ClassNotFoundException {
+    public static String [] getPatientPassword (String username) throws SQLException, ClassNotFoundException {
         Connection con = DBConnection.getDBConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;
+        String result [] = new String [2];
 
-        String sql = "SELECT PASSWORD FROM PATIENTDATA WHERE USERNAME = ?";
+        String sql = "SELECT ID, PASSWORD FROM PATIENTDATA WHERE USERNAME = ?";
         ps = con.prepareStatement(sql);
         ps.setString(1, username);
         rs = ps.executeQuery();
+        result[0] = Integer.toString(rs.getInt("ID"));
+        result[1] = rs.getString("PASSWORD");
 
         rs.close ();
         ps.close ();
         con.close();
 
-        return rs.getString("PASSWORD");
+        return result;
+    }
+
+    public static String getDoctorPassword (String username) throws SQLException, ClassNotFoundException {
+        Connection con = DBConnection.getDBConnection();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        String result;
+
+        String sql = "SELECT PASSWORD FROM DOCTOR WHERE USERNAME = ?";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, username);
+        rs = ps.executeQuery();
+        result = rs.getString("PASSWORD");
+
+        rs.close ();
+        ps.close ();
+        con.close();
+
+        return result;
     }
 
     public static void main(String[] args) {
         try {
-            Date date = new Date();
-            boolean array[] = {true, false, false, false, true, false, true};
+            // Date date = new Date();
+            // boolean array[] = {true, false, false, false, true, false, true};
             
-            DBConnection.addPatientSymptom(1, date, array);
-            HashMap<String, String> symptoms = DBConnection.getSymptomData(1, date);
+            // DBConnection.addPatientSymptom(1, date, array);
+            // HashMap<String, String> symptoms = DBConnection.getSymptomData(1, date);
 
-            System.out.println(symptoms.get("breathingprob"));
-            System.out.println(symptoms.get("chestpain"));
+            // System.out.println(symptoms.get("breathingprob"));
+            // System.out.println(symptoms.get("chestpain"));
+
+            Vector<Vector<String>> res = DBConnection.getAllPatientName();
+            System.out.println (res.elementAt(1).elementAt(1));
+            System.out.println (res.elementAt(1).elementAt(1));
         } 
         catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block

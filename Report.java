@@ -1,4 +1,4 @@
-package ia;
+// package ia;
 
 import javax.swing.JFrame;
 
