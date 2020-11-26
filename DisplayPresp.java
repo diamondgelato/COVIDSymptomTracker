@@ -1,4 +1,4 @@
-package ia;
+// package ia;
 
 import javax.swing.JFrame;
 //This is for the doctor to view a particular patient's prescriptions
