@@ -1,5 +1,4 @@
-
-// package ia;
+package ia;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +19,7 @@ public class Doctor_login extends JFrame implements ActionListener
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Login Form");
         l1.setForeground(Color.blue);

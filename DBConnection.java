@@ -1,3 +1,4 @@
+package ia;
 import java.security.DigestException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -393,8 +394,8 @@ public class DBConnection {
         return result;
     }
 
-    public static void main(String[] args) {
-        try {
+    // public static void main(String[] args) {
+    //     try {
             // Date date = new Date();
             // boolean array[] = {true, false, false, false, true, false, true};
             
@@ -404,16 +405,16 @@ public class DBConnection {
             // System.out.println(symptoms.get("breathingprob"));
             // System.out.println(symptoms.get("chestpain"));
 
-            Vector<Vector<String>> res = DBConnection.getAllPatientName();
-            System.out.println (res.elementAt(1).elementAt(1));
-            System.out.println (res.elementAt(1).elementAt(1));
-        } 
-        catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+           // Vector<Vector<String>> res = DBConnection.getAllPatientName();
+            // System.out.println (res.elementAt(1).elementAt(1));
+            // System.out.println (res.elementAt(1).elementAt(1));
+    //     } 
+    //     catch (ClassNotFoundException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     } catch (SQLException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+            
+    // }
 }
