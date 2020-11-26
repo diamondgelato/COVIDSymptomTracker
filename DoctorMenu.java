@@ -20,16 +20,16 @@ public class DoctorMenu extends JFrame implements ActionListener
         
         l1.setForeground(Color.RED);  
         l1.setFont(new Font("Courier New", Font.BOLD, 15)); 
-        b1 = new JButton("New Prescription");  
-        b2 = new JButton("Display Previous Prescription");  
+        b1 = new JButton("Prescriptions");  
+        //b2 = new JButton("Display Previous Prescription");  
         b1.addActionListener(this);  
-        b2.addActionListener(this); 
+        //b2.addActionListener(this); 
         l1.setBounds(50, 30, 400, 30); 
-        b1.setBounds(50, 100, 100, 100);  
-        b2.setBounds(170, 100, 100, 100);   
+        b1.setBounds(50, 100, 150, 30);  
+        //b2.setBounds(170, 100, 100, 100);   
         add(l1);  
         add(b1);  
-        add(b2);  
+       // add(b2);  
         
          
     }
@@ -44,10 +44,10 @@ public class DoctorMenu extends JFrame implements ActionListener
                     dispose(); }
              
              
-             else {
-                 DisplayPresp s2= new DisplayPresp();
-                  s2.setVisible(true);
-                  dispose(); }
+            //  else {
+            //      DisplayPresp s2= new DisplayPresp();
+            //       s2.setVisible(true);
+            //       dispose(); }
             
                  
              

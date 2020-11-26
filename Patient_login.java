@@ -1,5 +1,5 @@
 
-// package ia;
+package ia;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,15 +15,15 @@ public class Patient_login extends JFrame implements ActionListener
     
     Patient_login()
     {
-        getContentPane().setBackground(Color.ORANGE);
+        getContentPane().setBackground(Color.CYAN);
         setTitle("Login Form for Patient");
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         l1 = new JLabel("Patient Login Form :");
-        l1.setForeground(Color.blue);
+        l1.setForeground(Color.RED);
         l1.setFont(new Font("Serif", Font.BOLD, 20));
         
         l2 = new JLabel("Enter Username:");

@@ -12,15 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
 
-public class Precautions {
-    public static void main(String args[]) {
-        new Abc();
+public class Precautions extends JFrame{
+    
 
-    }
-}
-
-class Abc extends JFrame {
-    public Abc() {
+    public Precautions() {
         
         getContentPane().setBackground(Color.CYAN);
         setVisible(true);  
@@ -28,7 +23,7 @@ class Abc extends JFrame {
         setLayout(null);  
         JFrame f = new JFrame();
         setTitle("COVID Precautions");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1000,1000);
         JButton b1, b2;
         String FontFamily="Courier New";

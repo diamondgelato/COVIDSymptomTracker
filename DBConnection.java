@@ -63,7 +63,7 @@ public class DBConnection {
 
     public static Connection getDBConnection () throws SQLException, ClassNotFoundException {
         String driverClassName = "org.sqlite.JDBC"; // driver name, find it
-        String url = "jdbc:sqlite:COVIDPatients.db"; // db name, make it
+        String url = "jdbc:sqlite:ia\\COVIDPatients.db"; // db name, make it
 
         // Load driver class
         Class.forName(driverClassName);
@@ -198,14 +198,14 @@ public class DBConnection {
         return result;
     }
 
-    public static Vector<HashMap<String, String>> getAllSymptomData (int patientID) throws SQLException, ClassNotFoundException {
+    public static Vector<HashMap<String, Integer>> getAllSymptomData (int patientID) throws SQLException, ClassNotFoundException {
         // get data of a specific patient/row
 
         Connection con = DBConnection.getDBConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;
-        Vector<HashMap<String, String>> result = new Vector<> ();
-        HashMap<String, String> temp = new HashMap<> ();
+        Vector<HashMap<String, Integer>> result = new Vector<> ();
+        HashMap<String, Integer> temp = new HashMap<> ();
 
         String sql = "SELECT * FROM SYMPTOMS WHERE PATIENTID = ?";
         ps = con.prepareStatement(sql);
@@ -215,13 +215,13 @@ public class DBConnection {
 
         while (rs.next()) {
             // int id = rs.getInt("ID");
-            temp.put("fever", rs.getString("FEVER"));
-            temp.put("musclepain", rs.getString("MUSCLEPAIN"));
-            temp.put("dizzy", rs.getString("DIZZY"));
-            temp.put("sorethroat", rs.getString("SORETHROAT"));
-            temp.put("cough", rs.getString("COUGH"));
-            temp.put("breathingprob", rs.getString("BREATHINGPROB"));
-            temp.put("chestpain", rs.getString("CHESTPAIN"));
+            temp.put("fever", rs.getInt("FEVER"));
+            temp.put("musclepain", rs.getInt("MUSCLEPAIN"));
+            temp.put("dizzy", rs.getInt("DIZZY"));
+            temp.put("sorethroat", rs.getInt("SORETHROAT"));
+            temp.put("cough", rs.getInt("COUGH"));
+            temp.put("breathingprob", rs.getInt("BREATHINGPROB"));
+            temp.put("chestpain", rs.getInt("CHESTPAIN"));
             result.add(temp);
         }
 
